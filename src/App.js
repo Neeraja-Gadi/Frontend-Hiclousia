@@ -10,6 +10,7 @@ import EducationForm from './components/multiForm/EducationForm';
 import ExperienceForm  from './components/multiForm/UserExperience';
 import ProjectForm from "./components/multiForm/UserProjects"
 import ProductSearch from "./components/Search.js";
+import RecruiterSearch from "./components/RecruiterSearch"
 import JobPostForm from  "./components/RecruiterForms/JobPostForm" ;
 import RecruiterProfileForm from "../src/components/RecruiterForms/RecruiterForm"
 
@@ -40,6 +41,8 @@ function App() {
 
                 
                 <Route path= "ProductSearch" element={ <ProductSearch/>}/>
+                <Route path= "RecruiterSearch" element={ <RecruiterSearch/>}/>
+
                 <Route path= "RecruiterProfileForm" element ={<RecruiterProfileForm/>}/>
                 <Route path=  "JobPostForm" element = {<JobPostForm/>}/>
                 {/* <Route path=  "multiform7" element = {<Form/>}/> */}
