@@ -110,8 +110,6 @@ function ProductSearch() {
           <StyledTableCell align="right">SecondarySkills</StyledTableCell>
           <StyledTableCell align="right">Experience</StyledTableCell>
           {/* <StyledTableCell align="right">Education Level</StyledTableCell> */}
-
-
           {/* <StyledTableCell align="right">JobDescription</StyledTableCell> */}
           <StyledTableCell align="right">Location</StyledTableCell>
           <StyledTableCell align="right">Salary</StyledTableCell>
@@ -138,13 +136,11 @@ function ProductSearch() {
     </Table>
   </TableContainer>:null
   }
-
           </form>
   
     </div>
   );
 }
-
 
 export default ProductSearch
 

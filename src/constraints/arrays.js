@@ -246,4 +246,27 @@ let secondarySkills =  [
         ] ;
       
 
-export { location, jobRole, primarySkills  , secondarySkills  , sector}
+let educationLevels = [
+    'Master of Technology',
+    'Master of Business Administration',
+    'Bachelor of Technology',
+    'Master Degree',
+    'Bachelor Degree',
+    'Diploma Equavalant to Bachelor degree',
+    'Diploma Equavalant to Master degree',
+    'Online Degree',
+    'Advance Diploma',
+    'PhD'
+  ] ;
+
+  let  experience = [
+    'Fresher',       '1 Year',
+    '2 Year',        '3 Year',
+    '4 Year',        '5 Year',
+    '6 Year',        '7 Year',
+    '8 Year',        '9 Year',
+    '10 Year',       '11 to 15 Year',
+    '15 to 20 Year', '20+ Year'
+  ]
+
+export { location, jobRole, primarySkills  , secondarySkills  , sector  ,educationLevels ,experience}

@@ -141,9 +141,12 @@ function UserProfile() {
 
                                 {userInfo.educationData?.map((education) => (
                                     <Grid item xs={8} sm={8} key={education._id} >
-                                        <Typography variant="subtitle1" gutterBottom >
-                                            {education.educationLevel}
-                                        </Typography>
+                                        
+                                        {/* <Typography variant="subtitle1" gutterBottom > */}
+                                            {education.educationLevel} passedout from {education.collegeName}
+                                        {/* </Typography> */}
+
+                                        
 
                                     </Grid>
                                 ))}

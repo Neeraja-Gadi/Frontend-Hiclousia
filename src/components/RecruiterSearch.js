@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import { Box, Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -10,12 +8,15 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import MultipleSelectChip from '../components/multiForm/MultiSelect';
+import { educationLevels, primarySkills, experience } from '../constraints/arrays';
 
 const useStyles = makeStyles((theme) => ({
 
     root: {
-       
+
         flexGrow: 1,
+
         background: theme.palette.info.main,
         border: 0,
         borderRadius: 5,
@@ -26,27 +27,50 @@ const useStyles = makeStyles((theme) => ({
         // padding: '30px 30px',
     },
     container: {
-        // padding: theme.spacing(6),
+      
         paddingTop: theme.spacing(3),
         paddingBottom: theme.spacing(3),
-        // backgroundColor: theme.palette.info.main,
-        // color: theme.palette.info.light
+       
 
     },
+    fitlerBox: {
+        borderColor: theme.palette.info.main
+    }
 
 }));
+
+
+// const RecruiterId = JSON.parse(localStorage.getItem('userDetails'))
 
 function RecruiterSearch() {
     const [query, setQuery] = useState('');
     const [seekers, setSeekers] = useState([]);
-    const [filter, setFilter] = React.useState('');
-    const [searchStatus, setSearchStatus] = React.useState(false)
+    // const [recruiterInfo , setRecruiterInfo] = ('')
+    const [filter, setFilter] = useState('');
+    const [searchStatus, setSearchStatus] = useState(false)
+
+    
 
     const handleChange = (event) => {
         setFilter(event.target.value);
     };
 
+    const handleQueryChange = (event) => {
+        // console.log(event.target.value)
+        setQuery(event.target.value);
+    }
+
     const searchRes = function () {
+
+    //     fetch(`http://localhost:8000/recruiter?${RecruiterId}`)
+    //     .then(response => response.json()
+    //         .then(data => {
+    //             setRecruiterInfo(data.data)
+    //             console.log(data)
+               
+    //         })
+    //         .catch(err => console.log(err)));
+    // console.log(recruiterInfo);
 
         fetch(`http://localhost:8000/allusers?${filter}=${query}`)
             .then(response => response.json()
@@ -74,7 +98,7 @@ function RecruiterSearch() {
                     Search ...
                 </Typography>
                 <FormControl >
-                    <InputLabel id="demo-simple-select-label">Filter</InputLabel>
+                    <InputLabel id="demo-simple-select-label"   >Filter</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -82,29 +106,33 @@ function RecruiterSearch() {
                         label="Filter"
                         onChange={handleChange}
                     >
-                        <MenuItem value={"educationLevel"}>Education Level</MenuItem>
+                        <MenuItem value={"educationLevel"} >Education Level</MenuItem>
                         <MenuItem value={"experience"}>Experience</MenuItem>
                         <MenuItem value={"primarySkills"}>PrimarySkills</MenuItem>
                         {/* <MenuItem value={"location"}>Location</MenuItem> */}
-                        {/* <MenuItem value={"educationLevel"}>Education</MenuItem> */}
 
                     </Select>
                 </FormControl>
-                <TextField id="outlined-basic"
+                {filter === "educationLevel" ? (<MultipleSelectChip handleFunction={handleQueryChange} requiredData={educationLevels} label={"Select"} />) : null}
+                {filter === "experience" ? (<MultipleSelectChip handleFunction={handleQueryChange} requiredData={experience} label={"Select"} />) : null}
+                {filter === "primarySkills" ? (<MultipleSelectChip handleFunction={handleQueryChange} requiredData={primarySkills} label={"Select"} />) : null}
+                {/* 
+
+                {/* <TextField id="outlined-basic"
                     variant="outlined"
-                    value={query} onChange={(e) => setQuery(e.target.value)} />
+                    value={query} onChange={handleQueryChange} /> */}
                 {/* <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} /> */}
                 <button type="submit">Search</button>
                 {
                     searchStatus ?
 
-                        <Container maxWidth="xs" >
+                        <Container maxWidth="sm" textAlign="center" >
                             <CssBaseline>
                                 <Grid container spacing={1}>
                                     <Grid item xs={12}>
-                                        <Typography textAlign="center" variant="h4" gutterBottom>
+                                        {/* <Typography textAlign="center" variant="h4" gutterBottom>
                                             JobSeekers Matched
-                                        </Typography>
+                                        </Typography> */}
                                     </Grid>
                                     {seekers.map((seeker, index) => (
                                         <Grid item xs={8} sm={8} key={index} className={classes.root}>
@@ -115,20 +143,19 @@ function RecruiterSearch() {
                                                 Email :{seeker.email}
                                             </Typography>
                                             <Typography variant="subtitle1" textAlign="center" gutterBottom >
-                                                EducationLevel :{seeker.educationLevel}
+                                                Education  :{seeker.educationLevel}
                                             </Typography>
                                             <Typography variant="subtitle1" gutterBottom >
                                                 Experience  :{seeker.experience}
                                             </Typography>
                                             <Typography variant="subtitle1" gutterBottom >
-                                                PrimarySkills: {seeker.primarySkills}
+                                                PrimarySkills  :{seeker.primarySkills}
                                             </Typography>
                                         </Grid>
                                     ))}
                                 </Grid>
                             </CssBaseline>
                         </Container> : null
-
                 }
 
             </form>
@@ -138,3 +165,4 @@ function RecruiterSearch() {
 }
 
 export default RecruiterSearch;
+

@@ -9,6 +9,8 @@ import styled from 'styled-components';
  width: 678px;
  max-width: 100%;
  min-height: 400px;
+ margin: 25%;
+ margin-top: 6%;
  `;
 
  

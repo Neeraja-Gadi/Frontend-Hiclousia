@@ -13,66 +13,72 @@
   background-size: 100% 100%;
 }
 
-.nav{
-  position: relative;
+nav{
   display: flex;
-  width: 100%;
-  height: 130px;
-  
-}
-
-.logo{
-
-  position: relative;
-  display: flex;
-  float: left;
-  width: 20%;
-  height: 100%;
-  margin: auto;
   align-items: center;
-  justify-content: center;
-  color: bisque;
-  margin-left: -5%;
-
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-.logo span{
+nav h1{
+  color: rgb(229, 229, 32);
+}
+
+span{
   color: aqua;
 }
 
-.menu{
-  position: relative;
-  display: flex;
-  float: right;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
+nav ul li{
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 17px;
   
 }
 
-.menu ul{
-  display: flex;
-  list-style: none;
+nav ul li a{
+  text-decoration: none;
+  color: rgb(240, 240, 10);
+
+
 }
 
-.menu ul li{
-  margin:  20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: black;
-  border-radius: 5px;
-  text-decoration: none;
-  color: yellow;
+nav ul li a:hover{
+  color: blue;
+  transition: 0.3s;
 }
 
 
-.menu ul li a{    
-  text-decoration: none;
-  color: #FFD700;
+
+nav form{
+ 
+  height: 11vh;
+  width: 30%;
+  
+ 
+}
+
+nav form input{
+  height: 4vh;
+  width: 60%;
+  border-radius: 7px;
+  border-style: none;
+}
+
+.profile{
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.profile:hover{
+  transform: scale(1.2);
+  transition: .3s;
+}
+
+nav form button:hover{
+  transform: scale(1.3);
+  cursor: pointer;
 }
 
 

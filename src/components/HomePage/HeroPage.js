@@ -2,8 +2,11 @@ import React from 'react';
 import '../../styles/App.css';
 import { useEffect } from 'react';
 import LoginCard from '../loginPage/loginCard';
-import {useNavigate} from "react-router-dom"
+
 import SearchIcon from '@mui/icons-material/Search';
+import {useNavigate,Link} from "react-router-dom"
+import { AiOutlineUser } from "react-icons/"
+
 
 function App(){
 const [user, setUser] = React.useState("");
@@ -24,30 +27,42 @@ function logOut(){
   return(
 
     <div className="hero">
-      <div className="nav">
-        <div className="logo">
-          <h1>H<span>i</span></h1>
-        </div>
-        <div className="search">
+      <nav>
+       
+       <h1>H<span>iCLOUSIA</span></h1>
+       <div className="search">
           
-        </div>
-        <div className="menu">
-          <ul>
-          <a href="/ProductSearch"><SearchIcon  sx={{ fontSize: 80 , color: "white" }} /></a>
-            <li><a href="#talent">Talent Profile</a></li>
-            <li><a href="/RecruiterProfileForm">Recruiter</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact Us </a></li>
-            
-            
-            {
-              user?<li style={{background: "red",cursor:'pointer'}} onClick={logOut}>Log Out</li>: <li><a href="/login">Login</a></li>
-            }
-            <a href="/UserProfile"> <LoginCard /></a>
-           {/* <LoginCard onClick={()=>navigate("/UserProfile")}/> */}
-          </ul>
-        </div>
-      </div>
+          </div>
+
+       <a href="/ProductSearch"><SearchIcon  sx={{ fontSize: 80 , color: "white" }} /></a>
+       <ul>
+         <li><a href="#t">Talent Profile</a></li>
+         <li><Link to="/RecruiterProfileForm">Recruiter</Link></li>
+         <li><Link>About Us</Link></li>
+         <li><Link>Contact Us</Link></li>
+
+         {user ? (
+              <li
+                style={{ background: "red", cursor: "pointer" }}
+                onClick={logOut}
+              >
+                Log Out
+              </li>
+            ) : (
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            )}  
+            &nbsp;&nbsp; &nbsp;
+           
+            {/* <AiOutlineUser style={{width: '4%', height: '6%', backgroundColor: 'aqua', borderRadius: '20px', float: 'right', marginTop: '-5.5%',cursor: 'pointer'}} onClick={()=>navigate("/UserProfile")}/>  
+                   */}
+
+                   <button className="profile" onClick={() => navigate("/UserProfile")}><i class="fa-solid fa-user" style={{height
+                   : '15vh'
+                  }}></i></button>
+       </ul>
+     </nav>
 
       <div className="talent-recruiter">
         <ul>
