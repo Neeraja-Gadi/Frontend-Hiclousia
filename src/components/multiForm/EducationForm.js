@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
 import { Button, TextField, Select, MenuItem, FormControl, InputLabel, FormHelperText, makeStyles, Typography } from '@material-ui/core';
-
+import baseurl from '../../baseURL/config'
 const userId = JSON.parse(localStorage.getItem('userDetails'));
 
 
@@ -102,7 +102,7 @@ const EducationForm = () => {
 
     educationList.map((e, index) => {
 
-      fetch('http://localhost:8000/education', {
+      fetch(`${baseurl}/education`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

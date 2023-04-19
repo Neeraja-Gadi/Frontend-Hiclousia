@@ -1,9 +1,8 @@
  import React, { useState } from 'react';
  import { makeStyles } from '@material-ui/core/styles';
  import TextField from '@material-ui/core/TextField';
- import { Button, Typography,Grid,IconButton, } from '@material-ui/core';
- import { Add, Remove,AddCircleOutline, RemoveCircleOutline } from '@material-ui/icons';
-// import CssBaseline from '@material-ui/core/CssBaseline';
+ import { Button, Typography } from '@material-ui/core';
+ import { Add, Remove} from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,12 +12,10 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft : theme.spacing(1),
       paddingBottom : theme.spacing(3),
       [theme.breakpoints.down('sm')]: {
-        //  backgroundColor: theme.palette.info.main 
       },
       width: '70ch',
     },
-    //  width :"auto",
-    //  height : "auto",
+   
        color: theme.palette.primary.main ,
        background: '#8ec9ff',
        boxShadow: '0px 3px 5px 2px rgba(255, 105, 135, .3)',

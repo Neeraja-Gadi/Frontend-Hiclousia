@@ -39,16 +39,12 @@ function App() {
                 <Route path ="UserProfile" element={<UserProfile/>}/>
                 <Route path= "EducationForm" element={ <EducationForm/>}/>
                 <Route path= "ExperienceForm" element={ <ExperienceForm/>}/>
-                <Route path= "ProjectForm" element={ <ProjectForm/>}/>
-
-                
+                <Route path= "ProjectForm" element={ <ProjectForm/>}/>               
                 <Route path= "ProductSearch" element={ <ProductSearch/>}/>
                 <Route path= "RecruiterSearch" element={ <RecruiterSearch/>}/>
-
                 <Route path= "RecruiterProfileForm" element ={<RecruiterProfileForm/>}/>
                 {/* <Route path=  "JobPostForm" element = {<JobPostForm/>}/> */}
                 <Route path=  "JobForm" element = {<JobForm/>}/>
-
                 {/* <Route path=  "multiform7" element = {<Form/>}/> */}
             </Routes>
            

@@ -5,9 +5,6 @@ import {
     TextField,
     Typography,
     Button,
-    Checkbox,
-    FormControlLabel,
-    FormControl,
     InputLabel,
     Select,
     MenuItem,
@@ -76,7 +73,7 @@ const RecruiterProfileForm = () => {
       
       const handleInputChange2 = (e, index) => {
         const {name, value} = e.target;
-        const [field, propertyIndex] = name.split(".");
+        const [field] = name.split(".");
         handleExperienceChange(index, field, value);
       };
       
